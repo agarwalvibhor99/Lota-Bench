@@ -1,0 +1,80 @@
+/notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config_wah_headless': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+{'planner': {'model_name': '/notebooks/LLMTaskPlanning/models/Qwen3-4B-Instruct-2507', 'use_accelerate_device_map': True, 'load_in_8bit': True, 'device': 'cuda', 'max_steps': 25, 'random_seed': 0, 'scoring_batch_size': 4, 'score_function': 'sum', 'scoring_mode': 'naive', 'use_predefined_prompt': False, 'hf_auth_token': '', 'openai_api_key': '', 'nl_act_list': ['find', 'pick up', 'open', 'close', 'switch on', 'put down'], 'dynamic_skill_set': False}, 'name': 'wah', 'out_dir': '${hydra:run.dir}', 'prompt': {'num_examples': 5, 'splitter': '', 'prefix': "Robot: Hi there, I'm a robot operating in a home.\nRobot: You can ask me to do various tasks and I'll tell you the sequence of actions I would do to accomplish your task.\n", 'example_file_path': 'resource/wah_examples_for_prompt_default.json', 'seed': 0, 'select_method': 'uniform'}, 'dataset': {'wah_testset': 'dataset/wah_nl_test.json', 'wah_trainset': 'dataset/wah_nl_train.json', 'obj_dict_sim2nl': 'resource/wah_objects_sim2nl.json', 'obj_dict_nl2sim': 'resource/wah_objects_nl2sim.json'}, 'experiment': {'exp_name': 'benchmark_wah_nl'}, 'environment': {'observation_types': ['full'], 'use_editor': True, 'base_port': 8080, 'port_id': 1, 'executable_args': {'file_name': 'virtualhome/simulation/unity_simulator/linux_exec.x86_64', 'x_display': '1'}, 'recording_options': {'recording': False, 'output_folder': '../../../figure', 'file_name_prefix': 'Test', 'cameras': ['PERSON_FROM_BACK']}}}
+[2025-12-09 02:48:24,070][wah.wah_evaluator][INFO] - planner:
+  model_name: /notebooks/LLMTaskPlanning/models/Qwen3-4B-Instruct-2507
+  use_accelerate_device_map: true
+  load_in_8bit: true
+  device: cuda
+  max_steps: 25
+  random_seed: 0
+  scoring_batch_size: 4
+  score_function: sum
+  scoring_mode: naive
+  use_predefined_prompt: false
+  hf_auth_token: ''
+  openai_api_key: ''
+  nl_act_list:
+  - find
+  - pick up
+  - open
+  - close
+  - switch on
+  - put down
+  dynamic_skill_set: false
+name: wah
+out_dir: ${hydra:run.dir}
+prompt:
+  num_examples: 5
+  splitter: ''
+  prefix: 'Robot: Hi there, I''m a robot operating in a home.
+
+    Robot: You can ask me to do various tasks and I''ll tell you the sequence of actions
+    I would do to accomplish your task.
+
+    '
+  example_file_path: resource/wah_examples_for_prompt_default.json
+  seed: 0
+  select_method: uniform
+dataset:
+  wah_testset: dataset/wah_nl_test.json
+  wah_trainset: dataset/wah_nl_train.json
+  obj_dict_sim2nl: resource/wah_objects_sim2nl.json
+  obj_dict_nl2sim: resource/wah_objects_nl2sim.json
+experiment:
+  exp_name: benchmark_wah_nl
+environment:
+  observation_types:
+  - full
+  use_editor: true
+  base_port: 8080
+  port_id: 1
+  executable_args:
+    file_name: virtualhome/simulation/unity_simulator/linux_exec.x86_64
+    x_display: '1'
+  recording_options:
+    recording: false
+    output_folder: ../../../figure
+    file_name_prefix: Test
+    cameras:
+    - PERSON_FROM_BACK
+
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+You are using a model of type qwen3 to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+Loading LLM and tokenizer: /notebooks/LLMTaskPlanning/models/Qwen3-4B-Instruct-2507
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/notebooks/LLMTaskPlanning/src/evaluate.py", line 31, in main
+    evaluator.evaluate()
+  File "/notebooks/LLMTaskPlanning/src/wah/wah_evaluator.py", line 32, in evaluate
+    planner = WahTaskPlanner(cfg)
+              ^^^^^^^^^^^^^^^^^^^
+  File "/notebooks/LLMTaskPlanning/src/task_planner.py", line 106, in __init__
+    self.model = AutoModelForCausalLM.from_pretrained(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 496, in from_pretrained
+    raise ValueError(
+ValueError: Unrecognized configuration class <class 'transformers.configuration_utils.PretrainedConfig'> for this kind of AutoModel: AutoModelForCausalLM.
+Model type should be one of BartConfig, BertConfig, BertGenerationConfig, BigBirdConfig, BigBirdPegasusConfig, BioGptConfig, BlenderbotConfig, BlenderbotSmallConfig, BloomConfig, CamembertConfig, CodeGenConfig, CpmAntConfig, CTRLConfig, Data2VecTextConfig, ElectraConfig, ErnieConfig, FalconConfig, GitConfig, GPT2Config, GPT2Config, GPTBigCodeConfig, GPTNeoConfig, GPTNeoXConfig, GPTNeoXJapaneseConfig, GPTJConfig, LlamaConfig, MarianConfig, MBartConfig, MegaConfig, MegatronBertConfig, MusicgenConfig, MvpConfig, OpenLlamaConfig, OpenAIGPTConfig, OPTConfig, PegasusConfig, PLBartConfig, ProphetNetConfig, QDQBertConfig, ReformerConfig, RemBertConfig, RobertaConfig, RobertaPreLayerNormConfig, RoCBertConfig, RoFormerConfig, RwkvConfig, Speech2Text2Config, TransfoXLConfig, TrOCRConfig, XGLMConfig, XLMConfig, XLMProphetNetConfig, XLMRobertaConfig, XLMRobertaXLConfig, XLNetConfig, XmodConfig.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

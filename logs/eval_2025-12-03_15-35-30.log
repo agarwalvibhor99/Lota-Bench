@@ -1,0 +1,220 @@
+/notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config_alfred': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+{'planner': {'model_name': '/notebooks/LLMTaskPlanning/models/Qwen3-4B-Instruct-2507', 'use_accelerate_device_map': True, 'load_in_8bit': True, 'device': 'cuda', 'max_steps': 25, 'random_seed': 0, 'scoring_batch_size': 4, 'score_function': 'sum', 'scoring_mode': 'naive', 'use_predefined_prompt': False, 'hf_auth_token': '', 'openai_api_key': ''}, 'name': 'alfred', 'out_dir': '${hydra:run.dir}', 'prompt': {'num_examples': 6, 'splitter': '', 'prefix': "Robot: Hi there, I'm a robot operating in a home.\nRobot: You can ask me to do various tasks and I'll tell you the sequence of actions I would do to accomplish your task.\n", 'example_file_path': 'resource/alfred_examples_for_prompt.json'}, 'alfred': {'x_display': '1', 'eval_set': 'valid_seen', 'eval_portion_in_percent': 5, 'random_seed_for_eval_subset': 1}}
+[2025-12-03 15:35:36,382][src.alfred.alfred_evaluator][INFO] - planner:
+  model_name: /notebooks/LLMTaskPlanning/models/Qwen3-4B-Instruct-2507
+  use_accelerate_device_map: true
+  load_in_8bit: true
+  device: cuda
+  max_steps: 25
+  random_seed: 0
+  scoring_batch_size: 4
+  score_function: sum
+  scoring_mode: naive
+  use_predefined_prompt: false
+  hf_auth_token: ''
+  openai_api_key: ''
+name: alfred
+out_dir: ${hydra:run.dir}
+prompt:
+  num_examples: 6
+  splitter: ''
+  prefix: 'Robot: Hi there, I''m a robot operating in a home.
+
+    Robot: You can ask me to do various tasks and I''ll tell you the sequence of actions
+    I would do to accomplish your task.
+
+    '
+  example_file_path: resource/alfred_examples_for_prompt.json
+alfred:
+  x_display: '1'
+  eval_set: valid_seen
+  eval_portion_in_percent: 5
+  random_seed_for_eval_subset: 1
+
+/notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py:492: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+`torch_dtype` is deprecated! Use `dtype` instead!
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Loading LLM and tokenizer: /notebooks/LLMTaskPlanning/models/Qwen3-4B-Instruct-2507
+[2025-12-03 15:35:41,500][accelerate.utils.modeling][INFO] - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|                                                                                                                       | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|█████████████████████████████████████                                                                          | 1/3 [00:10<00:21, 10.94s/it]Loading checkpoint shards:  67%|██████████████████████████████████████████████████████████████████████████                                     | 2/3 [00:22<00:11, 11.02s/it]Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:22<00:00,  6.14s/it]Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:22<00:00,  7.45s/it]
+Loading done
+
+[2025-12-03 15:36:04,580][src.alfred.alfred_task_planner][INFO] - # of skills: 214
+[2025-12-03 15:36:04,580][src.alfred.alfred_task_planner][INFO] - [' done', ' find a cart', ' find a ladle', ' find a toilet', ' find a kettle', ' find a cup', ' find a pen', ' find an egg', ' find a book', ' find a desk', ' find a statue', ' find a plunger', ' find a potato', ' find a sofa', ' find a soap bottle', ' find a pot', ' find a sink', ' find a credit card', ' find a salt shaker', ' find a soap bar', ' find a hand towel', ' find a bed', ' find a faucet', ' find a fork', ' find a safe', ' find a mug', ' find a bathtub', ' find a glassbottle', ' find a tomato', ' find a cell phone', ' find a microwave', ' find an ottoman', ' find a cloth', ' find a pan', ' find a coffee machine', ' find a newspaper', ' find a vase', ' find a dining table', ' find a pillow', ' find a box', ' find a drawer', ' find a baseball bat', ' find a garbage can', ' find a floor lamp', ' find a knife', ' find a plate', ' find a key chain', ' find a candle', ' find a CD', ' find an arm chair', ' find a tissue box', ' find an alarm clock', ' find a stove burner', ' find a spoon', ' find a spray bottle', ' find a butter knife', ' find a dish sponge', ' find a tennis racket', ' find a coffee table', ' find an apple', ' find a wine bottle', ' find a toilet paper', ' find a watch', ' find a bowl', ' find a pencil', ' find a shelf', ' find a spatula', ' find a lettuce', ' find a counter top', ' find a toilet paper hanger', ' find a dresser', ' find a bread', ' find a basket ball', ' find a fridge', ' find a cabinet', ' find a side table', ' find a desk lamp', ' find a watering can', ' find a remote control', ' find a pepper shaker', ' find a laptop', ' pick up the key chain', ' put down the key chain', ' pick up the potato', ' put down the potato', ' pick up the pot', ' put down the pot', ' pick up the pen', ' put down the pen', ' pick up the candle', ' put down the candle', ' pick up the CD', ' put down the CD', ' pick up the pan', ' put down the pan', ' pick up the watch', ' put down the watch', ' pick up the newspaper', ' put down the newspaper', ' pick up the hand towel', ' put down the hand towel', ' pick up the spray bottle', ' put down the spray bottle', ' pick up the baseball bat', ' put down the baseball bat', ' pick up the bread', ' put down the bread', ' pick up the cell phone', ' put down the cell phone', ' pick up the book', ' put down the book', ' pick up the lettuce', ' put down the lettuce', ' pick up the credit card', ' put down the credit card', ' pick up the mug', ' put down the mug', ' pick up the alarm clock', ' put down the alarm clock', ' pick up the kettle', ' put down the kettle', ' pick up the toilet paper', ' put down the toilet paper', ' pick up the bowl', ' put down the bowl', ' pick up the fork', ' put down the fork', ' pick up the box', ' put down the box', ' pick up the egg', ' put down the egg', ' pick up the spoon', ' put down the spoon', ' pick up the tissue box', ' put down the tissue box', ' pick up the apple', ' put down the apple', ' pick up the tennis racket', ' put down the tennis racket', ' pick up the ladle', ' put down the ladle', ' pick up the wine bottle', ' put down the wine bottle', ' pick up the cloth', ' put down the cloth', ' pick up the plunger', ' put down the plunger', ' pick up the soap bar', ' put down the soap bar', ' pick up the pencil', ' put down the pencil', ' pick up the laptop', ' put down the laptop', ' pick up the remote control', ' put down the remote control', ' pick up the basket ball', ' put down the basket ball', ' pick up the dish sponge', ' put down the dish sponge', ' pick up the cup', ' put down the cup', ' pick up the spatula', ' put down the spatula', ' pick up the salt shaker', ' put down the salt shaker', ' pick up the plate', ' put down the plate', ' pick up the pepper shaker', ' put down the pepper shaker', ' pick up the pillow', ' put down the pillow', ' pick up the glassbottle', ' put down the glassbottle', ' pick up the soap bottle', ' put down the soap bottle', ' pick up the knife', ' put down the knife', ' pick up the statue', ' put down the statue', ' pick up the tomato', ' put down the tomato', ' pick up the butter knife', ' put down the butter knife', ' pick up the watering can', ' put down the watering can', ' pick up the vase', ' put down the vase', ' open the safe', ' close the safe', ' open the laptop', ' close the laptop', ' open the fridge', ' close the fridge', ' open the box', ' close the box', ' open the microwave', ' close the microwave', ' open the cabinet', ' close the cabinet', ' open the drawer', ' close the drawer', ' slice the potato', ' slice the lettuce', ' slice the tomato', ' slice the apple', ' slice the bread', ' turn on the microwave', ' turn off the microwave', ' turn on the desk lamp', ' turn off the desk lamp', ' turn on the floor lamp', ' turn off the floor lamp', ' turn on the faucet', ' turn off the faucet']
+thor-201909061227-Linux64: [                                                                                                                         0%   0.0 s/B]  of 390.MB
+thor-201909061227-Linux64: [                                                                                                                       0% 215.6 KiB/s]  of 390.MB
+thor-201909061227-Linux64: [                                                                                                                       0% 526.9 KiB/s]  of 390.MB
+thor-201909061227-Linux64: [                                                                                                                       0%   1.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [                                                                                                                       0%   2.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [                                                                                                                       0%   3.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|                                                                                                                      1%   6.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||                                                                                                                     1%   8.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||                                                                                                                     2%   9.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||                                                                                                                    2%  10.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||                                                                                                                   3%  12.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||                                                                                                                   4%  13.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||                                                                                                                  4%  13.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||                                                                                                                 5%  14.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||                                                                                                                 5%  15.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||                                                                                                                6%  15.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||                                                                                                               6%  16.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||                                                                                                               7%  16.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||                                                                                                              8%  16.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||                                                                                                             8%  17.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||                                                                                                             9%  17.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||                                                                                                          10%  18.7 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||                                                                                                          10%  19.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||                                                                                                         11%  19.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||                                                                                                        12%  19.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||                                                                                                        12%  19.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||                                                                                                       13%  19.7 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||                                                                                                      13%  19.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||                                                                                                      14%  20.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||                                                                                                     15%  20.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||                                                                                                    15%  20.3 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||                                                                                                    16%  20.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||                                                                                                   16%  20.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||                                                                                                  17%  20.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||                                                                                                 18%  21.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||                                                                                                19%  21.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||                                                                                                19%  21.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||                                                                                               20%  21.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||                                                                                              20%  21.7 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||                                                                                              21%  21.7 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||                                                                                             21%  21.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||                                                                                            22%  21.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||                                                                                            23%  21.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||                                                                                           23%  22.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||                                                                                          24%  22.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||                                                                                         25%  22.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||                                                                                        26%  22.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||                                                                                       26%  22.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||                                                                                      27%  22.7 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||                                                                                      28%  22.7 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||                                                                                     28%  22.7 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||                                                                                    29%  22.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||                                                                                    30%  22.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||                                                                                   30%  23.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||                                                                                  31%  23.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||                                                                                 32%  23.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||                                                                                32%  23.3 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||                                                                                33%  23.3 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||                                                                               34%  23.3 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||                                                                              34%  23.3 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||                                                                              35%  23.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||                                                                             35%  23.3 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||                                                                            36%  23.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||                                                                            36%  23.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||                                                                          37%  23.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||                                                                          38%  23.7 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||                                                                         39%  23.7 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||                                                                        39%  23.7 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||                                                                        40%  23.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||                                                                       41%  23.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||                                                                      41%  23.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||                                                                      42%  23.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||                                                                     42%  23.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||                                                                    43%  23.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||                                                                   44%  24.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||                                                                  45%  24.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||                                                                  45%  24.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||                                                                 46%  24.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                                46%  24.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                                47%  24.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                              48%  24.3 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                              49%  24.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                             49%  24.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                            50%  24.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                           50%  24.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                           51%  24.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                          52%  24.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                         53%  24.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                        53%  24.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                       54%  24.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                       54%  24.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                      55%  24.8 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                     56%  24.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                    57%  24.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                   57%  24.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                   58%  24.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                  58%  24.9 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                 59%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                                60%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                               61%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                               61%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                              62%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                             63%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                            64%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                           64%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                           65%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                          65%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                         66%  25.3 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                        67%  25.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                       68%  25.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                       68%  25.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                      69%  25.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                     70%  25.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                    71%  25.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                   71%  25.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                   72%  25.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                  72%  25.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                 73%  25.6 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                 73%  25.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                74%  25.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                                74%  25.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                               75%  25.5 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                              76%  25.4 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                              76%  25.3 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                             77%  25.3 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                             77%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                            78%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                           78%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                           79%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                          79%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                         80%  25.2 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                         80%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                        81%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                       82%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                       82%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                      83%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                     83%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                     84%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                    84%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                   85%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                   86%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                  86%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                 87%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                 87%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||                88%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||               89%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||               89%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||              90%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||             90%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||             91%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||            91%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||           92%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||           93%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||          93%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||         94%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||         94%  25.0 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||        95%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||       96%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||      97%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||     97%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||     98%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||    98%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||   99%  25.1 MiB/s]  of 390.MB
+thor-201909061227-Linux64: [|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 100%  25.1 MiB/s]  of 390.MB
+Found path: /root/.ai2thor/releases/thor-201909061227-Linux64/thor-201909061227-Linux64
+Mono path[0] = '/root/.ai2thor/releases/thor-201909061227-Linux64/thor-201909061227-Linux64_Data/Managed'
+Mono config path = '/root/.ai2thor/releases/thor-201909061227-Linux64/thor-201909061227-Linux64_Data/Mono/etc'
+Unable to preload the following plugins:
+	ScreenSelector.so
+PlayerPrefs - Creating folder: /root/.config/unity3d/Allen Institute for Artificial Intelligence
+PlayerPrefs - Creating folder: /root/.config/unity3d/Allen Institute for Artificial Intelligence/AI2-Thor
+Logging to /root/.config/unity3d/Allen Institute for Artificial Intelligence/AI2-Thor/Player.log

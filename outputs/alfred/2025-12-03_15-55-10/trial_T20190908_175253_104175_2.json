@@ -1,0 +1,1 @@
+{"trial": "trial_T20190908_175253_104175", "scene": "FloorPlan413", "type": "pick_clean_then_place_in_recep", "repeat_idx": 2, "goal_instr": "Put a clean rag on the toilet. ", "inferred_steps": ["open the cabinet", "pick up the cloth", "find a toilet", "put down the cloth", "done"], "success": false}

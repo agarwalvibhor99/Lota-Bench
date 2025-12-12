@@ -1,0 +1,1 @@
+{"trial": "trial_T20190908_075813_148407", "scene": "FloorPlan27", "type": "pick_cool_then_place_in_recep", "repeat_idx": 1, "goal_instr": "Slice bread and chill it in the fridge. ", "inferred_steps": ["find a bread", "pick up the bread", "find a knife", "slice the bread", "find a fridge", "open the fridge", "put down the bread", "close the fridge", "done"], "success": false}

@@ -1,0 +1,1 @@
+{"trial": "trial_T20190908_052232_887934", "scene": "FloorPlan429", "type": "pick_and_place_simple", "repeat_idx": 2, "goal_instr": "Place a candle on top of the toilet.", "inferred_steps": ["find a candle", "pick up the candle", "find a toilet", "put down the candle", "done"], "success": true}

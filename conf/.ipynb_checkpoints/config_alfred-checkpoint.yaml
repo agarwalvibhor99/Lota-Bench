@@ -1,0 +1,34 @@
+name: alfred
+
+defaults:
+  - hydra: default.yaml
+  - planner: default.yaml
+
+out_dir: ${hydra:run.dir}
+
+prompt:
+  num_examples: 6
+  splitter: ""
+  prefix: "Robot: Hi there, I'm a robot operating in a home.\nRobot: You can ask me to do various tasks and I'll tell you the sequence of actions I would do to accomplish your task.\n"
+  example_file_path: "resource/alfred_examples_for_prompt.json"
+
+alfred:
+  x_display: "1"
+  eval_set: 'valid_seen'  # valid_seen, valid_unseen
+  eval_portion_in_percent: 5  # use a small set for a faster evaluationin. 100 means a full set.
+  random_seed_for_eval_subset: 1
+
+# For Qwen
+planner:
+  model_name: "/notebooks/LLMTaskPlanning/models/Qwen3-4B-Instruct-2507"
+  use_accelerate_device_map: true
+  load_in_8bit: true
+  device: "cuda"
+  max_steps: 25
+  random_seed: 0
+  scoring_batch_size: 4
+  score_function: "sum"
+  scoring_mode: "naive"
+  use_predefined_prompt: false
+  hf_auth_token: ""
+  openai_api_key: ""

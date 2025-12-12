@@ -1,0 +1,98 @@
+[2025-12-08 23:25:21,729][wah.wah_evaluator][INFO] - planner:
+  model_name: EleutherAI/gpt-neo-1.3B
+  use_accelerate_device_map: true
+  load_in_8bit: false
+  device: cuda
+  max_steps: 30
+  random_seed: 0
+  scoring_batch_size: 10
+  score_function: sum
+  scoring_mode: guidance
+  use_predefined_prompt: false
+  hf_auth_token: false
+  openai_api_key: ''
+  nl_act_list:
+  - find
+  - pick up
+  - open
+  - close
+  - switch on
+  - put down
+  dynamic_skill_set: false
+name: wah
+out_dir: ${hydra:run.dir}
+prompt:
+  num_examples: 5
+  splitter: ''
+  prefix: 'Robot: Hi there, I''m a robot operating in a home.
+
+    Robot: You can ask me to do various tasks and I''ll tell you the sequence of actions
+    I would do to accomplish your task.
+
+    '
+  example_file_path: resource/wah_examples_for_prompt_default.json
+  seed: 0
+  select_method: uniform
+dataset:
+  wah_testset: dataset/wah_nl_test.json
+  wah_trainset: dataset/wah_nl_train.json
+  obj_dict_sim2nl: resource/wah_objects_sim2nl.json
+  obj_dict_nl2sim: resource/wah_objects_nl2sim.json
+experiment:
+  exp_name: benchmark_wah_nl
+environment:
+  observation_types:
+  - full
+  use_editor: true
+  base_port: 8080
+  port_id: 1
+  executable_args:
+    file_name: virtualhome/simulation/unity_simulator/linux_exec.x86_64
+    x_display: '1'
+  recording_options:
+    recording: false
+    output_folder: ../../../figure
+    file_name_prefix: Test
+    cameras:
+    - PERSON_FROM_BACK
+
+[2025-12-08 23:26:05,947][wah.wah_evaluator][INFO] - Put one cupcake and one apple on the coffee table
+[2025-12-08 23:26:18,314][wah.wah_evaluator][INFO] - 1. find a kitchen cabinet (True)
+[2025-12-08 23:26:22,467][wah.wah_evaluator][INFO] - 2. open the kitchen cabinet (True)
+[2025-12-08 23:26:26,229][wah.wah_evaluator][INFO] - 3. find a cupcake (True)
+[2025-12-08 23:26:29,117][wah.wah_evaluator][INFO] - 4. pick up the cupcake (False)
+[2025-12-08 23:26:32,469][wah.wah_evaluator][INFO] - 5. find a kitchen cabinet (True)
+[2025-12-08 23:26:36,045][wah.wah_evaluator][INFO] - 6. put down the cupcake (False)
+[2025-12-08 23:26:39,415][wah.wah_evaluator][INFO] - 7. put down the apple (False)
+[2025-12-08 23:26:42,543][wah.wah_evaluator][INFO] - 8. put down the apple (False)
+[2025-12-08 23:26:46,837][wah.wah_evaluator][INFO] - 9. put down the apple (False)
+[2025-12-08 23:26:50,816][wah.wah_evaluator][INFO] - 10. put down the apple (False)
+[2025-12-08 23:26:54,629][wah.wah_evaluator][INFO] - 11. put down the apple (False)
+[2025-12-08 23:26:57,869][wah.wah_evaluator][INFO] - 12. put down the apple (False)
+[2025-12-08 23:27:01,750][wah.wah_evaluator][INFO] - 13. put down the apple (False)
+[2025-12-08 23:27:05,011][wah.wah_evaluator][INFO] - 14. put down the apple (False)
+[2025-12-08 23:27:08,580][wah.wah_evaluator][INFO] - 15. put down the apple (False)
+[2025-12-08 23:27:12,172][wah.wah_evaluator][INFO] - I want you to collect these things from the fridge and put them on the coffee table.  1 pudding, 1 wine and 1 juice
+[2025-12-08 23:27:22,036][wah.wah_evaluator][INFO] - 1. find a fridge (True)
+[2025-12-08 23:27:25,889][wah.wah_evaluator][INFO] - 2. open the fridge (True)
+[2025-12-08 23:27:29,307][wah.wah_evaluator][INFO] - 3. find a pudding (True)
+[2025-12-08 23:27:32,362][wah.wah_evaluator][INFO] - 4. pick up the pudding (False)
+[2025-12-08 23:27:35,550][wah.wah_evaluator][INFO] - 5. find a fridge (True)
+[2025-12-08 23:27:39,166][wah.wah_evaluator][INFO] - 6. put down the pudding (False)
+[2025-12-08 23:27:42,445][wah.wah_evaluator][INFO] - 7. find a wine glass (True)
+[2025-12-08 23:27:45,930][wah.wah_evaluator][INFO] - 8. pick up the wine glass (False)
+[2025-12-08 23:27:49,038][wah.wah_evaluator][INFO] - 9. put down the wine glass (False)
+[2025-12-08 23:27:53,404][wah.wah_evaluator][INFO] - 10. put down the fridge (False)
+[2025-12-08 23:27:56,588][wah.wah_evaluator][INFO] - 11. find a plate (True)
+[2025-12-08 23:27:59,910][wah.wah_evaluator][INFO] - 12. put down the plate (False)
+[2025-12-08 23:28:03,188][wah.wah_evaluator][INFO] - 13. put down the plate (False)
+[2025-12-08 23:28:06,652][wah.wah_evaluator][INFO] - 14. put down the plate (False)
+[2025-12-08 23:28:10,316][wah.wah_evaluator][INFO] - 15. put down the plate (False)
+[2025-12-08 23:28:13,668][wah.wah_evaluator][INFO] - 16. put down the plate (False)
+[2025-12-08 23:28:17,588][wah.wah_evaluator][INFO] - 17. put down the plate (False)
+[2025-12-08 23:28:21,571][wah.wah_evaluator][INFO] - 18. put down the plate (False)
+[2025-12-08 23:28:25,277][wah.wah_evaluator][INFO] - 19. put down the plate (False)
+[2025-12-08 23:28:29,425][wah.wah_evaluator][INFO] - Bring an apple and place it on the coffee table
+[2025-12-08 23:28:34,173][wah.wah_evaluator][INFO] - 1. find a kitchen cabinet (True)
+[2025-12-08 23:28:37,198][wah.wah_evaluator][INFO] - 2. open the kitchen cabinet (True)
+[2025-12-08 23:28:40,120][wah.wah_evaluator][INFO] - 3. find an apple (True)

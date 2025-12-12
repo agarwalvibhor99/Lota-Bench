@@ -1,0 +1,1 @@
+{"trial": "trial_T20190907_222640_487432", "scene": "FloorPlan1", "type": "pick_heat_then_place_in_recep", "repeat_idx": 1, "goal_instr": "Warm up the cup on the coffee maker.", "inferred_steps": ["find a cup", "pick up the cup", "put down the cup", "find a coffee machine", "put down the cup", "find a coffee machine", "put down the cup", "done"], "success": false}

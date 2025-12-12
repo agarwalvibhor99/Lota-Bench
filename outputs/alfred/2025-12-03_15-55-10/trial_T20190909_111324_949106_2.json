@@ -1,0 +1,1 @@
+{"trial": "trial_T20190909_111324_949106", "scene": "FloorPlan224", "type": "pick_and_place_simple", "repeat_idx": 2, "goal_instr": "Move a newspaper from a dresser to a black couch.", "inferred_steps": ["find a newspaper", "pick up the newspaper", "find a dresser", "put down the newspaper", "pick up the newspaper", "put down the newspaper", "done"], "success": false}

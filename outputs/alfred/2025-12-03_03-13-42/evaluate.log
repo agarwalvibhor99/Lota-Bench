@@ -1,0 +1,171 @@
+[2025-12-03 03:13:42,193][src.alfred.alfred_evaluator][INFO] - planner:
+  model_name: /notebooks/LLMTaskPlanning/models/Qwen3-4B-Instruct-2507
+  use_accelerate_device_map: true
+  load_in_8bit: true
+  device: cuda
+  max_steps: 25
+  random_seed: 0
+  scoring_batch_size: 4
+  score_function: sum
+  scoring_mode: guidance
+  use_predefined_prompt: false
+  hf_auth_token: ''
+  openai_api_key: ''
+name: alfred
+out_dir: ${hydra:run.dir}
+prompt:
+  num_examples: 6
+  splitter: ''
+  prefix: 'Robot: Hi there, I''m a robot operating in a home.
+
+    Robot: You can ask me to do various tasks and I''ll tell you the sequence of actions
+    I would do to accomplish your task.
+
+    '
+  example_file_path: resource/alfred_examples_for_prompt.json
+alfred:
+  x_display: '1'
+  eval_set: valid_seen
+  eval_portion_in_percent: 5
+  random_seed_for_eval_subset: 1
+
+[2025-12-03 03:13:46,473][accelerate.utils.modeling][INFO] - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+[2025-12-03 03:14:09,894][src.alfred.alfred_task_planner][INFO] - # of skills: 214
+[2025-12-03 03:14:09,894][src.alfred.alfred_task_planner][INFO] - [' done', ' find a toilet', ' find a cabinet', ' find a candle', ' find a tennis racket', ' find a tissue box', ' find a cup', ' find a sofa', ' find a tomato', ' find a shelf', ' find a plate', ' find a bathtub', ' find an egg', ' find a salt shaker', ' find a credit card', ' find a box', ' find a watch', ' find a ladle', ' find a toilet paper', ' find a book', ' find a key chain', ' find a wine bottle', ' find a cloth', ' find a stove burner', ' find a pot', ' find a glassbottle', ' find a newspaper', ' find a bowl', ' find a pan', ' find a baseball bat', ' find a microwave', ' find a desk lamp', ' find a bread', ' find a garbage can', ' find a soap bottle', ' find a dresser', ' find a kettle', ' find a laptop', ' find a toilet paper hanger', ' find a fork', ' find a dining table', ' find a basket ball', ' find a fridge', ' find a sink', ' find a drawer', ' find a watering can', ' find a pencil', ' find a cell phone', ' find a mug', ' find a butter knife', ' find a plunger', ' find a statue', ' find a vase', ' find a hand towel', ' find a spray bottle', ' find a spatula', ' find a dish sponge', ' find a counter top', ' find an alarm clock', ' find a potato', ' find a side table', ' find a desk', ' find a coffee table', ' find an ottoman', ' find an apple', ' find a spoon', ' find a floor lamp', ' find a soap bar', ' find a CD', ' find a knife', ' find a cart', ' find a faucet', ' find a coffee machine', ' find a safe', ' find a remote control', ' find a pillow', ' find a pepper shaker', ' find a pen', ' find a lettuce', ' find a bed', ' find an arm chair', ' pick up the key chain', ' put down the key chain', ' pick up the potato', ' put down the potato', ' pick up the pot', ' put down the pot', ' pick up the pen', ' put down the pen', ' pick up the candle', ' put down the candle', ' pick up the CD', ' put down the CD', ' pick up the pan', ' put down the pan', ' pick up the watch', ' put down the watch', ' pick up the newspaper', ' put down the newspaper', ' pick up the hand towel', ' put down the hand towel', ' pick up the spray bottle', ' put down the spray bottle', ' pick up the baseball bat', ' put down the baseball bat', ' pick up the bread', ' put down the bread', ' pick up the cell phone', ' put down the cell phone', ' pick up the book', ' put down the book', ' pick up the lettuce', ' put down the lettuce', ' pick up the credit card', ' put down the credit card', ' pick up the mug', ' put down the mug', ' pick up the alarm clock', ' put down the alarm clock', ' pick up the kettle', ' put down the kettle', ' pick up the toilet paper', ' put down the toilet paper', ' pick up the bowl', ' put down the bowl', ' pick up the fork', ' put down the fork', ' pick up the box', ' put down the box', ' pick up the egg', ' put down the egg', ' pick up the spoon', ' put down the spoon', ' pick up the tissue box', ' put down the tissue box', ' pick up the apple', ' put down the apple', ' pick up the tennis racket', ' put down the tennis racket', ' pick up the ladle', ' put down the ladle', ' pick up the wine bottle', ' put down the wine bottle', ' pick up the cloth', ' put down the cloth', ' pick up the plunger', ' put down the plunger', ' pick up the soap bar', ' put down the soap bar', ' pick up the pencil', ' put down the pencil', ' pick up the laptop', ' put down the laptop', ' pick up the remote control', ' put down the remote control', ' pick up the basket ball', ' put down the basket ball', ' pick up the dish sponge', ' put down the dish sponge', ' pick up the cup', ' put down the cup', ' pick up the spatula', ' put down the spatula', ' pick up the salt shaker', ' put down the salt shaker', ' pick up the plate', ' put down the plate', ' pick up the pepper shaker', ' put down the pepper shaker', ' pick up the pillow', ' put down the pillow', ' pick up the glassbottle', ' put down the glassbottle', ' pick up the soap bottle', ' put down the soap bottle', ' pick up the knife', ' put down the knife', ' pick up the statue', ' put down the statue', ' pick up the tomato', ' put down the tomato', ' pick up the butter knife', ' put down the butter knife', ' pick up the watering can', ' put down the watering can', ' pick up the vase', ' put down the vase', ' open the safe', ' close the safe', ' open the laptop', ' close the laptop', ' open the fridge', ' close the fridge', ' open the box', ' close the box', ' open the microwave', ' close the microwave', ' open the cabinet', ' close the cabinet', ' open the drawer', ' close the drawer', ' slice the potato', ' slice the lettuce', ' slice the tomato', ' slice the apple', ' slice the bread', ' turn on the microwave', ' turn off the microwave', ' turn on the desk lamp', ' turn off the desk lamp', ' turn on the floor lamp', ' turn off the floor lamp', ' turn on the faucet', ' turn off the faucet']
+[2025-12-03 03:14:16,692][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 0, 'task': 'pick_and_place_simple-SoapBar-None-Cart-401/trial_T20190907_054906_608944'}
+[2025-12-03 03:14:16,699][src.alfred.alfred_evaluator][INFO] - Evaluating (1/34): alfred/data/json_2.1.0/pick_and_place_simple-SoapBar-None-Cart-401/trial_T20190907_054906_608944
+[2025-12-03 03:14:32,155][src.alfred.alfred_evaluator][INFO] - Task: To place the soap on the rack.
+[2025-12-03 03:14:32,799][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:14:32,799][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 5, 'task': 'pick_cool_then_place_in_recep-Plate-None-Cabinet-27/trial_T20190906_173120_350651'}
+[2025-12-03 03:14:32,812][src.alfred.alfred_evaluator][INFO] - Evaluating (2/34): alfred/data/json_2.1.0/pick_cool_then_place_in_recep-Plate-None-Cabinet-27/trial_T20190906_173120_350651
+[2025-12-03 03:14:46,495][src.alfred.alfred_evaluator][INFO] - Task: Put a plate in a cabinet.
+[2025-12-03 03:14:46,725][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:14:46,725][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 0, 'task': 'pick_and_place_simple-Book-None-Sofa-229/trial_T20190907_042856_259139'}
+[2025-12-03 03:14:46,730][src.alfred.alfred_evaluator][INFO] - Evaluating (3/34): alfred/data/json_2.1.0/pick_and_place_simple-Book-None-Sofa-229/trial_T20190907_042856_259139
+[2025-12-03 03:14:55,807][src.alfred.alfred_evaluator][INFO] - Task: Move a book from a desk to a sofa.
+[2025-12-03 03:14:56,033][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:14:56,034][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_clean_then_place_in_recep-DishSponge-None-Cart-401/trial_T20190907_024634_972453'}
+[2025-12-03 03:14:56,045][src.alfred.alfred_evaluator][INFO] - Evaluating (4/34): alfred/data/json_2.1.0/pick_clean_then_place_in_recep-DishSponge-None-Cart-401/trial_T20190907_024634_972453
+[2025-12-03 03:14:58,965][src.alfred.alfred_evaluator][INFO] - Task: Put a clean sponge on a metal rack.
+[2025-12-03 03:14:59,266][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:14:59,266][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_cool_then_place_in_recep-BreadSliced-None-DiningTable-27/trial_T20190908_075813_148407'}
+[2025-12-03 03:14:59,279][src.alfred.alfred_evaluator][INFO] - Evaluating (5/34): alfred/data/json_2.1.0/pick_cool_then_place_in_recep-BreadSliced-None-DiningTable-27/trial_T20190908_075813_148407
+[2025-12-03 03:15:00,914][src.alfred.alfred_evaluator][INFO] - Task: Slice bread and chill it in the fridge. 
+[2025-12-03 03:15:01,156][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:01,157][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 0, 'task': 'pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-415/trial_T20190908_050518_595510'}
+[2025-12-03 03:15:01,160][src.alfred.alfred_evaluator][INFO] - Evaluating (6/34): alfred/data/json_2.1.0/pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-415/trial_T20190908_050518_595510
+[2025-12-03 03:15:04,412][src.alfred.alfred_evaluator][INFO] - Task: Put a roll of toilet paper on the toilet paper holder.
+[2025-12-03 03:15:04,668][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:04,668][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_clean_then_place_in_recep-ButterKnife-None-DiningTable-16/trial_T20190909_114508_617301'}
+[2025-12-03 03:15:04,677][src.alfred.alfred_evaluator][INFO] - Evaluating (7/34): alfred/data/json_2.1.0/pick_clean_then_place_in_recep-ButterKnife-None-DiningTable-16/trial_T20190909_114508_617301
+[2025-12-03 03:15:09,298][src.alfred.alfred_evaluator][INFO] - Task: Put a clean butter knife on a round white table.
+[2025-12-03 03:15:09,556][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:09,556][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 0, 'task': 'pick_and_place_simple-HandTowel-None-BathtubBasin-419/trial_T20190908_023400_293044'}
+[2025-12-03 03:15:09,561][src.alfred.alfred_evaluator][INFO] - Evaluating (8/34): alfred/data/json_2.1.0/pick_and_place_simple-HandTowel-None-BathtubBasin-419/trial_T20190908_023400_293044
+[2025-12-03 03:15:13,501][src.alfred.alfred_evaluator][INFO] - Task: Place a towel in the bath tub.
+[2025-12-03 03:15:13,726][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:13,727][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_and_place_simple-Newspaper-None-Sofa-224/trial_T20190909_111324_949106'}
+[2025-12-03 03:15:13,737][src.alfred.alfred_evaluator][INFO] - Evaluating (9/34): alfred/data/json_2.1.0/pick_and_place_simple-Newspaper-None-Sofa-224/trial_T20190909_111324_949106
+[2025-12-03 03:15:18,996][src.alfred.alfred_evaluator][INFO] - Task: Move a newspaper from a dresser to a black couch.
+[2025-12-03 03:15:19,267][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:19,267][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 0, 'task': 'pick_and_place_simple-Candle-None-Toilet-429/trial_T20190908_052232_887934'}
+[2025-12-03 03:15:19,272][src.alfred.alfred_evaluator][INFO] - Evaluating (10/34): alfred/data/json_2.1.0/pick_and_place_simple-Candle-None-Toilet-429/trial_T20190908_052232_887934
+[2025-12-03 03:15:21,446][src.alfred.alfred_evaluator][INFO] - Task: Put a bottle on the back of a newspaper.
+[2025-12-03 03:15:21,676][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:21,676][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 0, 'task': 'pick_cool_then_place_in_recep-PotatoSliced-None-SinkBasin-13/trial_T20190907_073447_193556'}
+[2025-12-03 03:15:21,697][src.alfred.alfred_evaluator][INFO] - Evaluating (11/34): alfred/data/json_2.1.0/pick_cool_then_place_in_recep-PotatoSliced-None-SinkBasin-13/trial_T20190907_073447_193556
+[2025-12-03 03:15:25,339][src.alfred.alfred_evaluator][INFO] - Task: Place a cold potato slice in the sink.
+[2025-12-03 03:15:25,662][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:25,662][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_clean_then_place_in_recep-Tomato-None-CounterTop-25/trial_T20190909_012550_586494'}
+[2025-12-03 03:15:25,671][src.alfred.alfred_evaluator][INFO] - Evaluating (12/34): alfred/data/json_2.1.0/pick_clean_then_place_in_recep-Tomato-None-CounterTop-25/trial_T20190909_012550_586494
+[2025-12-03 03:15:28,801][src.alfred.alfred_evaluator][INFO] - Task: Put a cold, clean tomato on the counter.
+[2025-12-03 03:15:29,045][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:29,045][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_and_place_with_movable_recep-Watch-Bowl-Shelf-326/trial_T20190909_031836_927615'}
+[2025-12-03 03:15:29,051][src.alfred.alfred_evaluator][INFO] - Evaluating (13/34): alfred/data/json_2.1.0/pick_and_place_with_movable_recep-Watch-Bowl-Shelf-326/trial_T20190909_031836_927615
+[2025-12-03 03:15:33,061][src.alfred.alfred_evaluator][INFO] - Task: Put a bowl with the watch in it on the shelf.
+[2025-12-03 03:15:33,315][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:33,316][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_and_place_simple-CreditCard-None-Drawer-227/trial_T20190909_010644_297017'}
+[2025-12-03 03:15:33,323][src.alfred.alfred_evaluator][INFO] - Evaluating (14/34): alfred/data/json_2.1.0/pick_and_place_simple-CreditCard-None-Drawer-227/trial_T20190909_010644_297017
+[2025-12-03 03:15:36,888][src.alfred.alfred_evaluator][INFO] - Task: Place a credit card into a drawer
+[2025-12-03 03:15:37,163][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:37,163][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_clean_then_place_in_recep-Cloth-None-Toilet-413/trial_T20190908_175253_104175'}
+[2025-12-03 03:15:37,182][src.alfred.alfred_evaluator][INFO] - Evaluating (15/34): alfred/data/json_2.1.0/pick_clean_then_place_in_recep-Cloth-None-Toilet-413/trial_T20190908_175253_104175
+[2025-12-03 03:15:40,292][src.alfred.alfred_evaluator][INFO] - Task: Put a clean rag on the toilet. 
+[2025-12-03 03:15:40,534][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:40,535][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_heat_then_place_in_recep-Mug-None-SideTable-21/trial_T20190909_090729_088825'}
+[2025-12-03 03:15:40,995][src.alfred.alfred_evaluator][INFO] - Evaluating (16/34): alfred/data/json_2.1.0/pick_heat_then_place_in_recep-Mug-None-SideTable-21/trial_T20190909_090729_088825
+[2025-12-03 03:15:44,645][src.alfred.alfred_evaluator][INFO] - Task: Put a heated mug on the small black table, left of the tomato. 
+[2025-12-03 03:15:44,955][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:15:44,955][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_and_place_with_movable_recep-TissueBox-Plate-DiningTable-203/trial_T20190909_141915_002879'}
+[2025-12-03 03:15:44,980][src.alfred.alfred_evaluator][INFO] - Evaluating (17/34): alfred/data/json_2.1.0/pick_and_place_with_movable_recep-TissueBox-Plate-DiningTable-203/trial_T20190909_141915_002879
+[2025-12-03 03:16:00,095][src.alfred.alfred_evaluator][INFO] - Task: take a dish to the table to put tissue box on it
+[2025-12-03 03:16:00,364][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:00,365][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_heat_then_place_in_recep-PotatoSliced-None-SinkBasin-13/trial_T20190909_115736_122556'}
+[2025-12-03 03:16:00,419][src.alfred.alfred_evaluator][INFO] - Evaluating (18/34): alfred/data/json_2.1.0/pick_heat_then_place_in_recep-PotatoSliced-None-SinkBasin-13/trial_T20190909_115736_122556
+[2025-12-03 03:16:03,791][src.alfred.alfred_evaluator][INFO] - Task: Put a sliced egg inside the sink
+[2025-12-03 03:16:04,035][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:04,035][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_and_place_with_movable_recep-TomatoSliced-Bowl-Fridge-20/trial_T20190907_060455_935544'}
+[2025-12-03 03:16:04,071][src.alfred.alfred_evaluator][INFO] - Evaluating (19/34): alfred/data/json_2.1.0/pick_and_place_with_movable_recep-TomatoSliced-Bowl-Fridge-20/trial_T20190907_060455_935544
+[2025-12-03 03:16:09,331][src.alfred.alfred_evaluator][INFO] - Task: Refrigerate a tomato slice in a bowl
+[2025-12-03 03:16:09,588][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:09,588][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_and_place_with_movable_recep-AppleSliced-Plate-Fridge-13/trial_T20190919_001342_371546'}
+[2025-12-03 03:16:09,615][src.alfred.alfred_evaluator][INFO] - Evaluating (20/34): alfred/data/json_2.1.0/pick_and_place_with_movable_recep-AppleSliced-Plate-Fridge-13/trial_T20190919_001342_371546
+[2025-12-03 03:16:12,473][src.alfred.alfred_evaluator][INFO] - Task: Put a slice of apple on a plate in the fridge.
+[2025-12-03 03:16:12,745][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:12,745][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_and_place_with_movable_recep-Spatula-Pan-CounterTop-17/trial_T20190906_194903_710920'}
+[2025-12-03 03:16:12,751][src.alfred.alfred_evaluator][INFO] - Evaluating (21/34): alfred/data/json_2.1.0/pick_and_place_with_movable_recep-Spatula-Pan-CounterTop-17/trial_T20190906_194903_710920
+[2025-12-03 03:16:16,150][src.alfred.alfred_evaluator][INFO] - Task: Plan a pan with a spatula in it down on the counter to the right of the toaster.
+[2025-12-03 03:16:16,416][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:16,416][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_clean_then_place_in_recep-Fork-None-Drawer-8/trial_T20190908_132152_999725'}
+[2025-12-03 03:16:16,424][src.alfred.alfred_evaluator][INFO] - Evaluating (22/34): alfred/data/json_2.1.0/pick_clean_then_place_in_recep-Fork-None-Drawer-8/trial_T20190908_132152_999725
+[2025-12-03 03:16:19,597][src.alfred.alfred_evaluator][INFO] - Task: Wash the fork.
+[2025-12-03 03:16:19,827][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:19,827][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 0, 'task': 'pick_heat_then_place_in_recep-Tomato-None-Fridge-24/trial_T20190908_033721_967359'}
+[2025-12-03 03:16:19,844][src.alfred.alfred_evaluator][INFO] - Evaluating (23/34): alfred/data/json_2.1.0/pick_heat_then_place_in_recep-Tomato-None-Fridge-24/trial_T20190908_033721_967359
+[2025-12-03 03:16:22,071][src.alfred.alfred_evaluator][INFO] - Task: Put a cooked tomato into the refrigerator.
+[2025-12-03 03:16:22,342][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:22,343][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_and_place_simple-Cloth-None-BathtubBasin-405/trial_T20190906_162502_940304'}
+[2025-12-03 03:16:22,348][src.alfred.alfred_evaluator][INFO] - Evaluating (24/34): alfred/data/json_2.1.0/pick_and_place_simple-Cloth-None-BathtubBasin-405/trial_T20190906_162502_940304
+[2025-12-03 03:16:23,765][src.alfred.alfred_evaluator][INFO] - Task: place a rag inside the tub
+[2025-12-03 03:16:24,007][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:24,007][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 0, 'task': 'pick_and_place_with_movable_recep-TomatoSliced-Pan-Fridge-11/trial_T20190909_011522_113515'}
+[2025-12-03 03:16:24,043][src.alfred.alfred_evaluator][INFO] - Evaluating (25/34): alfred/data/json_2.1.0/pick_and_place_with_movable_recep-TomatoSliced-Pan-Fridge-11/trial_T20190909_011522_113515
+[2025-12-03 03:16:27,475][src.alfred.alfred_evaluator][INFO] - Task: To place a pan with a tomato slice in it in the fridge.
+[2025-12-03 03:16:27,711][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:27,711][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_clean_then_place_in_recep-Ladle-None-DiningTable-27/trial_T20190911_131350_027076'}
+[2025-12-03 03:16:27,741][src.alfred.alfred_evaluator][INFO] - Evaluating (26/34): alfred/data/json_2.1.0/pick_clean_then_place_in_recep-Ladle-None-DiningTable-27/trial_T20190911_131350_027076
+[2025-12-03 03:16:29,661][src.alfred.alfred_evaluator][INFO] - Task: Place a clean ladle on a table.
+[2025-12-03 03:16:29,921][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:29,922][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_clean_then_place_in_recep-AppleSliced-None-DiningTable-27/trial_T20190907_151802_277016'}
+[2025-12-03 03:16:29,934][src.alfred.alfred_evaluator][INFO] - Evaluating (27/34): alfred/data/json_2.1.0/pick_clean_then_place_in_recep-AppleSliced-None-DiningTable-27/trial_T20190907_151802_277016
+[2025-12-03 03:16:31,696][src.alfred.alfred_evaluator][INFO] - Task: Cut an apple with a knife, wash the apple slice, place the apple slice on the table
+[2025-12-03 03:16:31,943][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:31,944][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 0, 'task': 'pick_and_place_simple-Newspaper-None-Sofa-224/trial_T20190909_111324_949106'}
+[2025-12-03 03:16:31,951][src.alfred.alfred_evaluator][INFO] - Evaluating (28/34): alfred/data/json_2.1.0/pick_and_place_simple-Newspaper-None-Sofa-224/trial_T20190909_111324_949106
+[2025-12-03 03:16:34,520][src.alfred.alfred_evaluator][INFO] - Task: Place a newspaper on a couch.
+[2025-12-03 03:16:34,779][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:34,779][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_heat_then_place_in_recep-Mug-None-CoffeeMachine-1/trial_T20190907_222640_487432'}
+[2025-12-03 03:16:34,792][src.alfred.alfred_evaluator][INFO] - Evaluating (29/34): alfred/data/json_2.1.0/pick_heat_then_place_in_recep-Mug-None-CoffeeMachine-1/trial_T20190907_222640_487432
+[2025-12-03 03:16:38,400][src.alfred.alfred_evaluator][INFO] - Task: Warm up the cup on the coffee maker.
+[2025-12-03 03:16:38,648][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:16:38,648][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 0, 'task': 'pick_clean_then_place_in_recep-ButterKnife-None-Drawer-30/trial_T20190908_052007_212776'}
+[2025-12-03 03:16:38,659][src.alfred.alfred_evaluator][INFO] - Evaluating (30/34): alfred/data/json_2.1.0/pick_clean_then_place_in_recep-ButterKnife-None-Drawer-30/trial_T20190908_052007_212776
+[2025-12-03 03:17:08,639][src.alfred.alfred_evaluator][INFO] - Task: Place a rinsed knife inside a drawer.
+[2025-12-03 03:17:08,893][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:17:08,894][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_and_place_simple-Candle-None-Toilet-429/trial_T20190908_052232_887934'}
+[2025-12-03 03:17:08,898][src.alfred.alfred_evaluator][INFO] - Evaluating (31/34): alfred/data/json_2.1.0/pick_and_place_simple-Candle-None-Toilet-429/trial_T20190908_052232_887934
+[2025-12-03 03:17:11,180][src.alfred.alfred_evaluator][INFO] - Task: Place a candle on top of the toilet.
+[2025-12-03 03:17:11,448][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:17:11,449][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 1, 'task': 'pick_and_place_with_movable_recep-DishSponge-Pot-SinkBasin-1/trial_T20190908_103955_680867'}
+[2025-12-03 03:17:11,469][src.alfred.alfred_evaluator][INFO] - Evaluating (32/34): alfred/data/json_2.1.0/pick_and_place_with_movable_recep-DishSponge-Pot-SinkBasin-1/trial_T20190908_103955_680867
+[2025-12-03 03:17:13,636][src.alfred.alfred_evaluator][INFO] - Task: Move the pot with the green sponge from the refrigerator to the sink.
+[2025-12-03 03:17:13,887][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:17:13,887][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_cool_then_place_in_recep-Cup-None-SideTable-21/trial_T20190906_192823_237997'}
+[2025-12-03 03:17:13,901][src.alfred.alfred_evaluator][INFO] - Evaluating (33/34): alfred/data/json_2.1.0/pick_cool_then_place_in_recep-Cup-None-SideTable-21/trial_T20190906_192823_237997
+[2025-12-03 03:17:18,604][src.alfred.alfred_evaluator][INFO] - Task: Put a chilled vase on the three tiered black table.
+[2025-12-03 03:17:18,872][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:17:18,872][src.alfred.alfred_evaluator][INFO] - {'repeat_idx': 2, 'task': 'pick_clean_then_place_in_recep-Cloth-None-Drawer-423/trial_T20190908_140701_251653'}
+[2025-12-03 03:17:18,879][src.alfred.alfred_evaluator][INFO] - Evaluating (34/34): alfred/data/json_2.1.0/pick_clean_then_place_in_recep-Cloth-None-Drawer-423/trial_T20190908_140701_251653
+[2025-12-03 03:17:47,102][src.alfred.alfred_evaluator][INFO] - Task: Put a clean cloth in a drawer.
+[2025-12-03 03:17:47,390][src.alfred.alfred_evaluator][INFO] - Error: KeyError('score')
+[2025-12-03 03:17:47,391][src.alfred.alfred_evaluator][INFO] - []

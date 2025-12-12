@@ -1,0 +1,1 @@
+{"trial": "trial_T20190908_050518_595510", "scene": "FloorPlan415", "type": "pick_and_place_simple", "repeat_idx": 0, "goal_instr": "Put a roll of toilet paper on the toilet paper holder.", "inferred_steps": ["find a toilet paper", "pick up the toilet paper", "find a toilet paper", "put down the toilet paper", "done"], "success": false}

@@ -1,0 +1,18 @@
+/notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+Traceback (most recent call last):
+  File "/notebooks/LLMTaskPlanning/src/evaluate.py", line 13, in <module>
+    from src.alfred.alfred_evaluator import AlfredEvaluator
+  File "/notebooks/LLMTaskPlanning/src/alfred/alfred_evaluator.py", line 28, in <module>
+    font = ImageFont.truetype("/usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf", 24)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/PIL/ImageFont.py", line 1008, in truetype
+    return freetype(font)
+           ^^^^^^^^^^^^^^
+  File "/notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/PIL/ImageFont.py", line 1005, in freetype
+    return FreeTypeFont(font, size, index, encoding, layout_engine)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/notebooks/LLMTaskPlanning/lota-bench-venv/lib/python3.11/site-packages/PIL/ImageFont.py", line 255, in __init__
+    self.font = core.getfont(
+                ^^^^^^^^^^^^^
+OSError: cannot open resource

@@ -1,0 +1,1 @@
+{"trial": "trial_T20190908_103955_680867", "scene": "FloorPlan1", "type": "pick_and_place_with_movable_recep", "repeat_idx": 1, "goal_instr": "Move the pot with the green sponge from the refrigerator to the sink.", "inferred_steps": ["find a pot", "pick up the pot", "turn on the faucet", "turn off the faucet", "find a sink", "put down the pot", "done"], "success": false}

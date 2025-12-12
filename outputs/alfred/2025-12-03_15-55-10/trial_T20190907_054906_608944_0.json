@@ -1,0 +1,1 @@
+{"trial": "trial_T20190907_054906_608944", "scene": "FloorPlan401", "type": "pick_and_place_simple", "repeat_idx": 0, "goal_instr": "To place the soap on the rack.", "inferred_steps": ["find a soap bar", "pick up the soap bar", "find a sink", "put down the soap bar", "done"], "success": false}

@@ -1,0 +1,307 @@
+[2025-12-05 16:05:10,153][wah.wah_evaluator][INFO] - planner:
+  model_name: EleutherAI/gpt-neo-1.3B
+  use_accelerate_device_map: true
+  load_in_8bit: false
+  device: cuda
+  max_steps: 30
+  random_seed: 0
+  scoring_batch_size: 10
+  score_function: sum
+  scoring_mode: guidance
+  use_predefined_prompt: false
+  hf_auth_token: false
+  openai_api_key: ''
+  nl_act_list:
+  - find
+  - pick up
+  - open
+  - close
+  - switch on
+  - put down
+  dynamic_skill_set: false
+name: wah
+out_dir: ${hydra:run.dir}
+prompt:
+  num_examples: 5
+  splitter: ''
+  prefix: 'Robot: Hi there, I''m a robot operating in a home.
+
+    Robot: You can ask me to do various tasks and I''ll tell you the sequence of actions
+    I would do to accomplish your task.
+
+    '
+  example_file_path: resource/wah_examples_for_prompt_default.json
+  seed: 0
+  select_method: uniform
+dataset:
+  wah_testset: dataset/wah_nl_test.json
+  wah_trainset: dataset/wah_nl_train.json
+  obj_dict_sim2nl: resource/wah_objects_sim2nl.json
+  obj_dict_nl2sim: resource/wah_objects_nl2sim.json
+experiment:
+  exp_name: benchmark_wah_nl
+environment:
+  observation_types:
+  - full
+  use_editor: true
+  base_port: 8080
+  port_id: 1
+  executable_args:
+    file_name: virtualhome/simulation/unity_simulator/linux_exec.x86_64
+  recording_options:
+    recording: false
+    output_folder: ../../../figure
+    file_name_prefix: Test
+    cameras:
+    - PERSON_FROM_BACK
+
+[2025-12-05 16:05:41,910][wah.wah_evaluator][INFO] - Put one cupcake and one apple on the coffee table
+[2025-12-05 16:05:41,954][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2177a3d150>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:41,954][wah.wah_evaluator][INFO] - I want you to collect these things from the fridge and put them on the coffee table.  1 pudding, 1 wine and 1 juice
+[2025-12-05 16:05:41,964][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681fd190>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:41,964][wah.wah_evaluator][INFO] - Bring an apple and place it on the coffee table
+[2025-12-05 16:05:41,972][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680f6490>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:41,972][wah.wah_evaluator][INFO] - Put a cupcake and a pudding on the coffee table
+[2025-12-05 16:05:41,980][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2177983790>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:41,980][wah.wah_evaluator][INFO] - Make sure there is a wine and a juice on the kitchen table.
+[2025-12-05 16:05:41,988][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680c9a90>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:41,989][wah.wah_evaluator][INFO] - Place 1 swine, 1 cupcake and 1 pudding onto the coffee table
+[2025-12-05 16:05:41,996][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681b58d0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:41,997][wah.wah_evaluator][INFO] - Go to the coffee table and put the apple, the wine and the pudding onto the table.
+[2025-12-05 16:05:42,005][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168099ed0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,005][wah.wah_evaluator][INFO] - Please get 1 glass of juice from the kitchen table.
+[2025-12-05 16:05:42,013][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681e9190>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,013][wah.wah_evaluator][INFO] - Please put the apple and the wine in the coffee table
+[2025-12-05 16:05:42,021][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680b1490>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,021][wah.wah_evaluator][INFO] - 1. find pudding
+2. grab pudding
+3. find juice
+4. grab juice
+5. go to coffee table
+6. place everything you have in your hands on the table.
+[2025-12-05 16:05:42,029][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680cadd0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,029][wah.wah_evaluator][INFO] - apple, wine, cupcake and pudding are on the coffee table
+[2025-12-05 16:05:42,037][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2161701750>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,037][wah.wah_evaluator][INFO] - Put pudding, cupcake, and juice on the coffee table.
+[2025-12-05 16:05:42,045][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681dd290>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,045][wah.wah_evaluator][INFO] - Go to fridge and get apple and juice and put them on the coffee table.
+[2025-12-05 16:05:42,053][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680c0650>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,053][wah.wah_evaluator][INFO] - Get me a pudding, a cupcake and pour me a wine and a juice and put it all on the coffee table.
+[2025-12-05 16:05:42,062][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680ae990>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,062][wah.wah_evaluator][INFO] - Please get a wine and a pudding and put them on the coffee table.
+[2025-12-05 16:05:42,078][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681fead0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,079][wah.wah_evaluator][INFO] - Place one pudding, one apple and one juice on the coffee table.
+[2025-12-05 16:05:42,087][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680bf210>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,087][wah.wah_evaluator][INFO] - bring an apple, a cupcake and a glass of juice and place them on the coffee table
+[2025-12-05 16:05:42,095][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168073290>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,095][wah.wah_evaluator][INFO] - place the cupcake on the coffee table
+[2025-12-05 16:05:42,103][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168172610>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,103][wah.wah_evaluator][INFO] - pick up wine bottle
+put bottle on coffee table
+pick up pudding dish
+put dish on coffee table
+[2025-12-05 16:05:42,110][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680b3c50>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,111][wah.wah_evaluator][INFO] - Put a cupcake, a wine, a pudding, and an apple on the coffee table.
+[2025-12-05 16:05:42,118][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2177a3cd10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,119][wah.wah_evaluator][INFO] - Puy my fork, the wine glass and the water glass into the dishwasher and switch it on.
+[2025-12-05 16:05:42,126][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168099090>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,126][wah.wah_evaluator][INFO] - water glass and plate are being washed in a dishwasher
+[2025-12-05 16:05:42,134][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681fc490>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,134][wah.wah_evaluator][INFO] - Put the fork and plate in the dishwasher and turn it on
+[2025-12-05 16:05:42,143][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680c0bd0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,143][wah.wah_evaluator][INFO] - Put the wine glass, glass and plate in the dishwasher and turn it on.
+[2025-12-05 16:05:42,151][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681b7a90>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,151][wah.wah_evaluator][INFO] - Please put the cutlery fork and water glass in the dishwasher and turn it on.
+[2025-12-05 16:05:42,159][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681e8b50>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,159][wah.wah_evaluator][INFO] - Put 1 cutlery for, 1 wine glass, 1 water glass, and 1 plate in the dishwasher and turn the dishwasher on
+[2025-12-05 16:05:42,167][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21616ff690>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,167][wah.wah_evaluator][INFO] - Please can you load the dishwasher for me and turn it on. There is a fork, a wine glass and a water glass. Once these have been washed in the dishwasher, can you unload it and put them away in there correct places.
+[2025-12-05 16:05:42,175][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168071d10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,175][wah.wah_evaluator][INFO] - Take the wine glass and plate and put them into the dishwasher. Start the dishwasher on a regular cycle.
+[2025-12-05 16:05:42,183][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680bf910>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,183][wah.wah_evaluator][INFO] - water glass and plate are washed in the dishwasher
+[2025-12-05 16:05:42,191][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680b0290>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,191][wah.wah_evaluator][INFO] - Put one cutlery fork, one wine glass and a plate in the dishwasher and turn the dishwasher on.
+[2025-12-05 16:05:42,199][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681e21d0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,200][wah.wah_evaluator][INFO] - Take 1 wine glass, 1 water glass and 1 plate and put them in the dishwasher. Make sure the dishwasher is turned on.
+[2025-12-05 16:05:42,208][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680e4c10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,208][wah.wah_evaluator][INFO] - Open the dishwasher. Place a fork, wine glass and a water glass in the dishwasher and turn the dishwasher on
+[2025-12-05 16:05:42,215][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680b0910>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,215][wah.wah_evaluator][INFO] - Make sure that there is one fork and one glass of water in the dishwasher, and then turn the dishwasher on
+[2025-12-05 16:05:42,223][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168157d90>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,223][wah.wah_evaluator][INFO] - Load the dishwasher with the wine glass, water glass, and plate. Then turn on the dishwasher.
+[2025-12-05 16:05:42,231][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680cadd0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,231][wah.wah_evaluator][INFO] - Take the wine glass and plate and put them in the dishwasher. Start the dishwasher on a regular cycle.
+[2025-12-05 16:05:42,238][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681fc210>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,238][wah.wah_evaluator][INFO] - get a cutlery fork
+open the dishwasher
+put the cutlery fork in the dishwasher
+get a water glass
+put the water glass in the dishwasher
+get a plate
+put the plate in the dishwasher
+close the dishwasher
+turn on the dishwasher
+[2025-12-05 16:05:42,246][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681c7b10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,246][wah.wah_evaluator][INFO] - Put 1 wine glass and 1 plate inside the dishwasher. After that turn the dishwasher on.
+[2025-12-05 16:05:42,254][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680d8b90>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,254][wah.wah_evaluator][INFO] - Check if there's 1 fork, 1 wine glass and 1 plate in the dishwasher and turn it on.
+[2025-12-05 16:05:42,262][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f216809a810>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,262][wah.wah_evaluator][INFO] - 1 cutlery fork, 1 wine glass, and 1 water glass are in the dishwasher, and the dishwasher is turned on.
+[2025-12-05 16:05:42,270][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681d78d0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,270][wah.wah_evaluator][INFO] - wash the cutlery fork, water glass, and plate that are in the dishwasher.
+[2025-12-05 16:05:42,278][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681d5790>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,278][wah.wah_evaluator][INFO] - Put 1 apple, 1 pancake, 1 cupcake and 1 juice on the kitchen table.
+[2025-12-05 16:05:42,286][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680e7750>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,286][wah.wah_evaluator][INFO] - Put the wine, the cupcake, the juice, the pound cake and the apple on the kitchen table, please.
+[2025-12-05 16:05:42,296][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681dd190>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,296][wah.wah_evaluator][INFO] - Robot, please get me 1 bottle of wine, 1 bottle of juice, 1 pound cake, 1 pudding and 1 apple and put it in the kitchen table
+[2025-12-05 16:05:42,305][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2177a81c10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,305][wah.wah_evaluator][INFO] - One bottle of wine, on the kitchen table.
+One bottle of juice, on the kitchen table.
+One pound cake, on the kitchen table.
+One pancake, on the kitchen table.
+One coffee pot, on the kitchen table.
+[2025-12-05 16:05:42,313][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168091950>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,313][wah.wah_evaluator][INFO] - Please put the apple and the cupcake and the pudding on the table away in the fridge
+[2025-12-05 16:05:42,321][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21616fffd0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,321][wah.wah_evaluator][INFO] - Please place the coffee pot, cake and pudding on the kitchen table
+[2025-12-05 16:05:42,330][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681fe350>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,330][wah.wah_evaluator][INFO] - On the kitchen table are 1 apple, 1 wine, 1 cupcake and 1 pudding.
+[2025-12-05 16:05:42,338][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680b0150>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,339][wah.wah_evaluator][INFO] - pudding, apple, cupcake, and juice are on the kitchen table
+[2025-12-05 16:05:42,347][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21616e2350>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,347][wah.wah_evaluator][INFO] - Fetch wine, juice, 1 pound cake, pudding and a coffee pot and put them on the kitchen table.
+[2025-12-05 16:05:42,355][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2177a9b450>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,355][wah.wah_evaluator][INFO] - Place a one pound cake, a cupcake and a pudding on the kitchen table.
+[2025-12-05 16:05:42,363][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680c3990>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,364][wah.wah_evaluator][INFO] - Robot, put 1 wine, 1 cupcake, 1 juice, 1 pound cake, 1 apple and 1 coffee pot on the kitchen table, please.
+[2025-12-05 16:05:42,372][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681ad510>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,372][wah.wah_evaluator][INFO] - Collect one bottle of wine, one pound cake, one pudding, one apple, and one coffee pot and place it on the kitchen table
+[2025-12-05 16:05:42,380][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681ae190>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,380][wah.wah_evaluator][INFO] - Please place an apple, a pancake, a pound cake and a pudding on the kitchen table.
+[2025-12-05 16:05:42,388][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f216818ee10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,388][wah.wah_evaluator][INFO] - Add an apple, a bottle of wine, a coffee pot and a pudding onto the kitchen table.
+[2025-12-05 16:05:42,396][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680db310>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,396][wah.wah_evaluator][INFO] - Put one glass of wine and one for juice then add one pound cake, an apple and one plate for the pancake on the kitchen table
+[2025-12-05 16:05:42,404][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680901d0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,404][wah.wah_evaluator][INFO] - bring one apple, a pound cake and a pudding to the kitchen table
+[2025-12-05 16:05:42,684][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681b3510>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,684][wah.wah_evaluator][INFO] - Take one pancake from the frying pan and place it on the kitchen table. Then comeback and do the same thing with 1 pudding
+[2025-12-05 16:05:42,693][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680ec310>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,693][wah.wah_evaluator][INFO] - Put 1 apple, 1 pancake, 1 pot of coffee and 1 juice on the table. All products are in the kitchen.
+[2025-12-05 16:05:42,702][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681e1b10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,702][wah.wah_evaluator][INFO] - Cupcake,juice,pound cake,pudding and apple all of them are on the kitchen table.
+[2025-12-05 16:05:42,710][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681e9d10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,710][wah.wah_evaluator][INFO] - Make sure the followings are on the kitchen table: 1 wine, 1 juice, 1 pound cake, 1 pudding, and 1 coffee pot
+[2025-12-05 16:05:42,718][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680e7d50>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,719][wah.wah_evaluator][INFO] - Put one apple and a cupcake into the fridge.
+[2025-12-05 16:05:42,727][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f216818cc90>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,727][wah.wah_evaluator][INFO] - ake the wine bottle, cupcake, and juice box from the kitchen counter and place them inside the fridge.
+[2025-12-05 16:05:42,735][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2172e8c0d0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,736][wah.wah_evaluator][INFO] - Get an apple, pancake, [pound of cake and a cupcake in the fridge
+[2025-12-05 16:05:42,748][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681decd0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,748][wah.wah_evaluator][INFO] - open fridge door
+pick up pudding dish
+put dish inside fridge
+pick up cupcake
+put cupcake inside fridge
+pick up juice bottle
+put juice bottle inside fridge
+close fridge door
+[2025-12-05 16:05:42,757][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680da190>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,758][wah.wah_evaluator][INFO] - Please put these items in the fridge: a cupcake, a juice, a pound cake, a pudding and an apple.
+[2025-12-05 16:05:42,766][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680e45d0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,767][wah.wah_evaluator][INFO] - Put 1 pound cake and 1 cupcake in the fridge
+[2025-12-05 16:05:42,775][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168072790>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,775][wah.wah_evaluator][INFO] - Put a pancake, wine, and a pudding in the fridge
+[2025-12-05 16:05:42,783][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680be110>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,783][wah.wah_evaluator][INFO] - I need you to store the following food items in the fridge:
+- 1 wine
+- 1 cupcake
+- 1 juice
+- 1 pudding
+- 1 apple
+[2025-12-05 16:05:42,792][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168194a10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,792][wah.wah_evaluator][INFO] - Place q pudding, 1 pancake, a wine, and  1 juice in the fridge
+[2025-12-05 16:05:42,801][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681ff250>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,801][wah.wah_evaluator][INFO] - Go to the kitchen and open the fridge door.By the side of the fridge are 1 apple and 1 juice drink.Place them carefully in the fridge and close the door.
+[2025-12-05 16:05:42,809][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680ee210>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,809][wah.wah_evaluator][INFO] - Please get the apple, the pancake, the pound cake and the cupcake and put them all in the fridge.
+[2025-12-05 16:05:42,817][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168098050>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,817][wah.wah_evaluator][INFO] - Put 1 cupcake, 1 juice, 1 pound cake, 1 apple inside the fridge.
+[2025-12-05 16:05:42,825][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168154f10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,825][wah.wah_evaluator][INFO] - Put apple, wine and cupcake in the fridge.
+[2025-12-05 16:05:42,833][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21616ff050>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,833][wah.wah_evaluator][INFO] - You have one pudding, an apple, cupcake and 1 juice. You have to take them one by one and put them into the fride. Remember to open and close the fridge door each time
+[2025-12-05 16:05:42,841][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680d9a50>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,841][wah.wah_evaluator][INFO] - Please put the apple and the desserts in the fridge
+[2025-12-05 16:05:42,850][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680d9b10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,850][wah.wah_evaluator][INFO] - Put apple, pancake, 1 pound cake and pudding into the fridge.
+[2025-12-05 16:05:42,858][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f216818de90>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,858][wah.wah_evaluator][INFO] - Hey robot, please put one bottle of wine, one cupcake, one pound cake, one pudding, and one apple in the fridge.
+[2025-12-05 16:05:42,867][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168156890>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,867][wah.wah_evaluator][INFO] - 1. find all of: 1 apple, 1 wine, 1 pound cake, and 1 cupcake and remember their location.
+2. remove all that are already in the fridge.
+3. grab as much as you can hold by going to remembered locations
+4. go to the fridge.
+5. open it.
+6. put what you are holding into the fridge.
+7. close it
+8. if any elements aren't yet in the fridge go to step 3.
+[2025-12-05 16:05:42,875][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681e0190>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,875][wah.wah_evaluator][INFO] - Put 1 pudding, 1 pound cake, 1 cupcake and 1 juice inside the fridge.
+[2025-12-05 16:05:42,883][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680c8d50>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,883][wah.wah_evaluator][INFO] - can you carry1 apple, 1 pancake, 1 wine, and 1 juice to the fridge
+[2025-12-05 16:05:42,892][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681eaa50>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,892][wah.wah_evaluator][INFO] - Please put the fork, wine glass, tumbler and a plate on the table.
+[2025-12-05 16:05:42,900][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681717d0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,900][wah.wah_evaluator][INFO] - Home service robot, please place 1 cutlery fork, 1 water glass and 1 plate onto the kitchen table.
+[2025-12-05 16:05:42,909][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681a51d0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,909][wah.wah_evaluator][INFO] - i need the cutlery and the place which are on the kitchen table
+[2025-12-05 16:05:42,917][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21616ff390>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,917][wah.wah_evaluator][INFO] - Put the fork, wine glass and a plate on the table.
+[2025-12-05 16:05:42,925][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681703d0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,925][wah.wah_evaluator][INFO] - Please put the fork, glass of water and a plate on the kitchen table.
+[2025-12-05 16:05:42,933][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680dbf90>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,933][wah.wah_evaluator][INFO] - Take the wine glass and the plate over to the kitchen table and put them down onto it.
+[2025-12-05 16:05:42,941][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21616eebd0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,941][wah.wah_evaluator][INFO] - Open the cutlery drawer and get a fork and put it in the kitchen table. Go get a wine glass and water glass and put them on the kitchen table.
+[2025-12-05 16:05:42,950][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f216818d810>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,950][wah.wah_evaluator][INFO] - I need to have 1 cutlery fork and 1 water glass. There should be on the kitchen table. Could you please confirm if this is true?
+[2025-12-05 16:05:42,958][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168194310>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,958][wah.wah_evaluator][INFO] - Check if there's is a fork a wine glass and a water glass on the kitchen table.
+[2025-12-05 16:05:42,967][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168155b90>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,967][wah.wah_evaluator][INFO] - Put wine glass and cutlery fork on the kitchen table.
+[2025-12-05 16:05:42,975][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681d7e90>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,975][wah.wah_evaluator][INFO] - Bring one cutlery fork on the kitchen table.
+Bring one glass of wine on the kitchen table.
+Bring one glass of water on the kitchen table.
+Bring one plate on the kitchen table.
+[2025-12-05 16:05:42,983][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680c19d0>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,984][wah.wah_evaluator][INFO] - Please serve a water glass on the kitchen table
+[2025-12-05 16:05:42,992][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21616e1f10>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:42,992][wah.wah_evaluator][INFO] - Please can you lay the table for me. I require a fork, a wine glass and a water glass on the table. I would also like 1 plate on there for me. Thank you.
+[2025-12-05 16:05:43,000][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168196b90>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:43,000][wah.wah_evaluator][INFO] - Please put the fork, the wine glass and the water glass on the kitchen table
+[2025-12-05 16:05:43,009][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680f4e50>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:43,009][wah.wah_evaluator][INFO] - Please set the kitchen table with a fork wine glass and plate
+[2025-12-05 16:05:43,017][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681ae250>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:43,018][wah.wah_evaluator][INFO] - carry 1 cutlery fork, 1 wine glass and 1 water glass on the kitchen table
+[2025-12-05 16:05:43,026][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681ae350>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:43,026][wah.wah_evaluator][INFO] - Put the following on the kitchen table: 1 glass of wine, 1 glass of water, and 1 plate
+[2025-12-05 16:05:43,034][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2168098050>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:43,035][wah.wah_evaluator][INFO] - Robot, please put the wine glass, water glass, and plate on the kitchen table.
+[2025-12-05 16:05:43,043][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681c5290>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:43,043][wah.wah_evaluator][INFO] - put the following on the kitchen table - 1 cutlery fork, 1 wine glass, 1 water glass and one plate
+[2025-12-05 16:05:43,052][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21680af990>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:43,052][wah.wah_evaluator][INFO] - get a cutlery fork
+put it on the kitchen table
+get a wine glass
+put it on the kitchen table
+get a water glass
+put it on the kitchen table
+get plate
+put it on the kitchen table
+[2025-12-05 16:05:43,060][wah.wah_evaluator][INFO] - Error: UnityCommunicationException("HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f21681d5790>: Failed to establish a new connection: [Errno 111] Connection refused'))")
+[2025-12-05 16:05:43,060][wah.wah_evaluator][INFO] - []
